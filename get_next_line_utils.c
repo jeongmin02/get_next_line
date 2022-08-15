@@ -6,7 +6,7 @@
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 12:26:05 by jerhee            #+#    #+#             */
-/*   Updated: 2022/08/12 12:30:43 by jerhee           ###   ########.fr       */
+/*   Updated: 2022/08/16 08:48:19 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		s1_len;
 	int		s2_len;
 	char	*res;
 
+
+	if (!s1 && s2)
+	{
+		res = (char *)malloc(sizeof(char) * (ft_strlen(s2) + 1));
+		ft_strlcpy(res, (char *)s2, ft_strlen(s2) + 1);
+		return (res);
+	}
 	if (!s1 || !s2)
 		return (NULL);
 	s1_len = ft_strlen(s1);
@@ -73,6 +80,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(res, (char *)s1, s1_len + 1);
 	ft_strlcat(res, (char *)s2, s1_len + s2_len + 1);
+	//free(s1);
 	return (res);
 }
 
@@ -94,4 +102,21 @@ char	*ft_strdup(char *s1)
 	}
 	res[i] = '\0';
 	return (res);
+}
+
+int	ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (1)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			//return ((char *)s + i);
+			return(i);
+		if (((unsigned char *)s)[i] == '\0')
+			break ;
+		i++;
+	}
+	return (0);
 }
