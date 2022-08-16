@@ -6,12 +6,13 @@
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 12:26:05 by jerhee            #+#    #+#             */
-/*   Updated: 2022/08/16 08:48:19 by jerhee           ###   ########.fr       */
+/*   Updated: 2022/08/16 10:02:24 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stddef.h>
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
