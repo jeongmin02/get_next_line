@@ -6,7 +6,7 @@
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 12:26:05 by jerhee            #+#    #+#             */
-/*   Updated: 2022/08/16 10:02:24 by jerhee           ###   ########.fr       */
+/*   Updated: 2022/08/17 18:55:48 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	{
 		res = (char *)malloc(sizeof(char) * (ft_strlen(s2) + 1));
 		ft_strlcpy(res, (char *)s2, ft_strlen(s2) + 1);
+		free(s1);
 		return (res);
 	}
 	if (!s1 || !s2)
@@ -81,27 +82,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	ft_strlcpy(res, (char *)s1, s1_len + 1);
 	ft_strlcat(res, (char *)s2, s1_len + s2_len + 1);
-	//free(s1);
-	return (res);
-}
-
-char	*ft_strdup(char *s1)
-{
-	int		s1_len;
-	int		i;
-	char	*res;
-
-	s1_len = ft_strlen(s1);
-	res = (char *)malloc(sizeof(char) * (s1_len + 1));
-	if (!res)
-		return (0);
-	i = 0;
-	while (s1[i])
-	{
-		res[i] = s1[i];
-		i++;
-	}
-	res[i] = '\0';
+	free(s1);
 	return (res);
 }
 
@@ -113,7 +94,6 @@ int	ft_strchr(const char *s, int c)
 	while (1)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)
-			//return ((char *)s + i);
 			return(i);
 		if (((unsigned char *)s)[i] == '\0')
 			break ;
