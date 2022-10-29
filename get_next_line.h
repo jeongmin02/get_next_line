@@ -6,7 +6,7 @@
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 20:31:05 by jerhee            #+#    #+#             */
-/*   Updated: 2022/10/29 20:41:31 by jerhee           ###   ########.fr       */
+/*   Updated: 2022/10/29 21:53:46 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_read_str(int fd, char *str);
 char	*ft_get_str(char *str);
 char	*ft_get_remain_str(char *str);
 size_t	*ft_strlen(char *s);
-int		ft_isnewline(char *s, int c);
+int		ft_isstrchr(char *s, int c);
 char 	*ft_strjoin(char *s1, char *s2);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 20:29:46 by jerhee            #+#    #+#             */
-/*   Updated: 2022/10/29 20:49:14 by jerhee           ###   ########.fr       */
+/*   Updated: 2022/10/29 21:53:48 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,26 @@ char	*get_next_line(int fd)
 		return (NULL);
 	s_list = find_fd(&static_list, fd);
 	s_list->str = ft_read_str(fd, s_list->str);
+	/*  ft_read_str
+	buf를 할당한다.
+	반복문을 save 에 개행이 없고 byte가 양수인 경우만 돈다.
+	while {
+		byte = read(~~~~); 해준다.
+		save에 buf를 strjoin을 해준다.
+	}
+	*/
+
+	/*	ft_get_line
+	개행 위치를 찾는다.
+	개행까지 문자열을 잘라서 res에 넣는다.
+	res를 리턴한다.
+	*/
+
+	/*	ft_save
+	개행 위치를 찾는다.
+	개행 이후의 문자열을 save에 넣는다.
+	*/
+	
 	
 	// line = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	// temp = NULL;
