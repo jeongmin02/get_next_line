@@ -5,98 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 12:26:05 by jerhee            #+#    #+#             */
-/*   Updated: 2022/08/17 18:55:48 by jerhee           ###   ########.fr       */
+/*   Created: 2022/10/29 20:46:45 by jerhee            #+#    #+#             */
+/*   Updated: 2022/10/29 21:51:15 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stddef.h>
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;
 	return (i);
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	j;
-
-	i = ft_strlen(dst);
-	j = 0;
-	if (dstsize <= i)
-		return (ft_strlen(src) + dstsize);
-	while (src[j] && i + j + 1 < dstsize)
-	{
-		dst[i + j] = src[j];
-		j++;
-	}
-	dst[i + j] = '\0';
-	return (i + ft_strlen(src));
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	i = 0;
-	if (dstsize > 0)
-	{
-		while (src[i] && (i < dstsize - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (ft_strlen(src));
-}
-
 char	*ft_strjoin(char *s1, char *s2)
 {
-	int		s1_len;
-	int		s2_len;
+	size_t	s1_len;
+	size_t	s2_len;
+	size_t	i;
 	char	*res;
 
-
-	if (!s1 && s2)
-	{
-		res = (char *)malloc(sizeof(char) * (ft_strlen(s2) + 1));
-		ft_strlcpy(res, (char *)s2, ft_strlen(s2) + 1);
-		free(s1);
-		return (res);
-	}
-	if (!s1 || !s2)
-		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	res = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!res)
 		return (NULL);
-	ft_strlcpy(res, (char *)s1, s1_len + 1);
-	ft_strlcat(res, (char *)s2, s1_len + s2_len + 1);
-	free(s1);
+	i = -1;
+	while (++i < s1_len)
+		res[i] = s1[i];
+	i = -1;
+	while (++i < s2_len)
+		res[s1_len + i] = s2[i];
+	res[s1_len + s2_len] = '\0';
+	if (s1)
+		free(s1);
 	return (res);
 }
 
-int	ft_strchr(const char *s, int c)
+int	ft_isstrchr(char *s, int c)
 {
-	int	i;
+	int i;
 
+	if (!s)
+		return(0);
 	i = 0;
-	while (1)
+	while (s[i])
 	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return(i);
-		if (((unsigned char *)s)[i] == '\0')
-			break ;
+		if (s[i] == c)
+			ruturn (1);
 		i++;
 	}
 	return (0);
