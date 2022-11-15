@@ -6,7 +6,7 @@
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:16:40 by jerhee            #+#    #+#             */
-/*   Updated: 2022/11/15 20:16:42 by jerhee           ###   ########.fr       */
+/*   Updated: 2022/11/15 20:56:40 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ char	*ft_strjoin(char *s1, char *s2)
 
 int	ft_is_strchr(char *s, int c)
 {
-	int i;
+	int	i;
 
 	if (!s)
-		return(0);
+		return (0);
 	i = 0;
 	while (s[i])
 	{
@@ -62,4 +62,49 @@ int	ft_is_strchr(char *s, int c)
 		i++;
 	}
 	return (0);
+}
+
+t_list	*ft_check_fd(t_list **static_list, int fd)
+{
+	t_list	*new;
+	t_list	*tmp;
+
+	tmp = *static_list;
+	while (tmp)
+	{
+		if (tmp->fd == fd)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	if (!tmp)
+	{
+		new = malloc(sizeof(t_list));
+		new->fd = fd;
+		new->str = NULL;
+		new->next = *static_list;
+		*static_list = new;
+	}
+	return (*static_list);
+}
+
+void	ft_free_node(t_list **list, int fd)
+{
+	t_list	*tmp;
+	t_list	*pre;
+
+	tmp = *list;
+	pre = NULL;
+	while (tmp)
+	{
+		if (tmp->fd == fd)
+			break ;
+		pre = tmp;
+		tmp = tmp->next;
+	}
+	if (!pre)
+		*list = tmp->next;
+	else
+		pre->next = tmp->next;
+	free(tmp->str);
+	free(tmp);
 }

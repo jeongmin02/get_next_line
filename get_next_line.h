@@ -6,15 +6,15 @@
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:16:29 by jerhee            #+#    #+#             */
-/*   Updated: 2022/11/15 20:19:43 by jerhee           ###   ########.fr       */
+/*   Updated: 2022/11/15 20:43:01 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <stddef.h>
-#include <stdlib.h>
+# include <stddef.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
