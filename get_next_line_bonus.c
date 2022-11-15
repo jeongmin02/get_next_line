@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jerhee <jerhee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 20:16:23 by jerhee            #+#    #+#             */
-/*   Updated: 2022/11/15 20:25:19 by jerhee           ###   ########.fr       */
+/*   Created: 2022/11/15 20:17:43 by jerhee            #+#    #+#             */
+/*   Updated: 2022/11/15 20:25:33 by jerhee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 t_list	*ft_check_fd(t_list **static_list, int fd)
 {
